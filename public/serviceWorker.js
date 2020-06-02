@@ -1,5 +1,5 @@
 const CACHE_NAME = "version-1"
-const urlsToCache = [ 'index.html', 'ofline.html' ]
+const urlsToCache = [ 'index.html', 'offline.html' ]
 
 const self = this
 
@@ -21,7 +21,7 @@ self.addEventListener('fetch', (event) => {
         caches.match(event.request)
             .then(() => {
                 return fetch(event.request)
-                    .catch((err) => caches.match('off-line.html'))
+                    .catch((err) => caches.match('offline.html'))
             })
     )
 })
@@ -32,13 +32,12 @@ self.addEventListener('activate', (event) => {
     cacheWhitelist.push(CACHE_NAME)
 
     event.waitUntil(
-        caches.keys().then((cacheNames) = Promise.all(
+        caches.keys().then((cacheNames) => Promise.all(
             cacheNames.map((cacheName) => {
                 if(!cacheWhitelist.includes(cacheName)) {
                     return caches.delete(cacheName)
                 }
             })
+        ))
     )
-
-}
-)
+})
