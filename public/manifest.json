@@ -1,5 +1,5 @@
 {
-    "short-name": "Weather App",
+    "short_name": "Weather App",
     "name": "Weather App PWA",
     "icons": [
         {
