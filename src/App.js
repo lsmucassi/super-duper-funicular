@@ -28,11 +28,15 @@ const App = () => {
                     <div className="city">
                         <h2 className="city-name">
                             <span>{weather.name}</span>
-                            <span>{weather.sys.country}</span>
+                            <sup>{weather.sys.country}</sup>
                         </h2>
                         <div className="city-temp">
                             {Math.round(weather.main.temp)}
                             <sup>&deg;C</sup>
+                        </div>
+                        <div className="info">
+                            <img className="city-icon" src={} atl={weather.weather[0].description} />
+
                         </div>
                     </div>
                     
